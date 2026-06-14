@@ -1,0 +1,38 @@
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Launch",
+//             "type": "lldb",
+//             "request": "launch",
+//             "program": "${workspaceFolder}/target/debug/",
+//             "args": [],
+//             "cwd": "${workspaceFolder}"
+//         }
+//     ]
+// }
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Rust Debug (Interactive)",
+            "type": "lldb",
+            "request": "launch",
+            // 입력받은 프로젝트 이름에 맞게 경로와 작업 디렉토리가 동적으로 바뀝니다.
+            "program": "${workspaceFolder}/${input:projectName}/target/debug/${input:projectName}",
+            "args": [],
+            "cwd": "${workspaceFolder}/${input:projectName}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "projectName",
+            "type": "promptString",
+            "description": "디버깅할 Cargo 프로젝트 폴더 이름을 입력하세요 (예: hello_world)",
+            "default": "hello_world"
+        }
+    ]
+}
